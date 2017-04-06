@@ -3,7 +3,9 @@
     <el-col :xs="8" :sm="8" :md="8" :lg="8">
       <div class="main-list">
         <el-card v-for="card in cards" class="box-card">
-        {{card}}
+          {{card}}
+
+
         </el-card>
       </div>
     </el-col>
@@ -36,7 +38,9 @@
     },
     methods: {
       pushCards: function () {
-        console.log('asss')
+        if (this.area === '') {
+          return
+        }
         this.cards.push(this.area)
         this.area = ''
       }
@@ -61,10 +65,10 @@
   }
 
   .main-area-input {
-  	min-height: 36px;
-  	width: 80%;
-  	border-radius: 5px;
-  	border: 1px solid #E5E9F2;
+    min-height: 36px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #E5E9F2;
     margin-top: 30%;
   }
 
