@@ -2,17 +2,19 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <List></List>
+    <Carousel></Carousel>
   </div>
 </template>
 
 <script>
   import List from './components/lists/List'
+  import Carousel from './components/carousel/carousel'
 
   export default {
     name: 'app',
     components: {
-      List
+      List,
+      Carousel
     }
   }
 </script>
