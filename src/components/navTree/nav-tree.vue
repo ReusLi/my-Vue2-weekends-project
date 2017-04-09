@@ -78,7 +78,6 @@
 
   .el-tree-node__content:hover {
     background-color: #475669 !important;
-    /*border: none;*/
   }
 
   .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
