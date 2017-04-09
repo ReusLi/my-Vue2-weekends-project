@@ -4,8 +4,6 @@
       <div class="main-list">
         <el-card v-for="card in cards" class="box-card">
           {{card}}
-
-
         </el-card>
       </div>
     </el-col>
