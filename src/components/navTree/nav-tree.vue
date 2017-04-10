@@ -1,8 +1,12 @@
 <!-- Created by reusli on 2017/4/9. -->
 
 <template>
-  <el-tree class="nav-tree" :data="data" :props="defaultProps" :highlight-current="true"
-           @node-click="handleNodeClick"></el-tree>
+  <div>
+    <el-tree class="nav-tree" :data="curTreeJson" :props="defaultProps" :highlight-current="true"
+             @node-click="handleNodeClick"></el-tree>
+    <el-input class="nav-input" v-model="inputValue"
+              @keyup.enter.native="inputEnter"></el-input>
+  </div>
 </template>
 
 <script>
@@ -14,14 +18,22 @@
       return {
         data: treeJson,
         defaultProps: {
-          label: 'label',
-          children: 'children'
-        }
+          label: 'label'
+//          children: 'children'
+        },
+        inputValue: '',
+        curTreeJson: []
       }
     },
     methods: {
       handleNodeClick (data) {
         console.log(data)
+      },
+      inputEnter () {
+        if (this.inputValue !== '') {
+          this.curTreeJson.push({'label': this.inputValue})
+          this.inputValue = ''
+        }
       }
     }
   }
@@ -37,6 +49,10 @@
 </style>
 
 <style>
+  .nav-input{
+    margin-top: 20px;
+  }
+
   .el-tree-node:hover {
     background-color: transparent;
     border: none;
