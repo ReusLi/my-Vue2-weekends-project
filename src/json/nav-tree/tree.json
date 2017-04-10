@@ -1,5 +1,5 @@
 /**
- * Created by reusli on 2017/4/9.
+ * Created by reusli on 2017/4/10.
  */
 
 [{
@@ -37,7 +37,3 @@
     }]
   }]
 }]
-
-export default {
-  name: 'json'
-}
