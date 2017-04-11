@@ -49,9 +49,9 @@
         data.children.push({ id: this.id++, label: 'id' + this.id, children: [] })
 //        store.append({ id: this.id++, label: 'id' + this.id, children: [] }, data)
         console.group('appends' + data.label)
-        console.log(JSON.stringify(store.data))
+        console.log(store)
         console.groupEnd()
-        this.treeData = store.data
+        this.treeData = store.root.store.data
       },
 
       remove (node, store, data) {
@@ -61,7 +61,7 @@
         console.log(data)
         console.log(node)
         console.groupEnd()
-        this.treeData = store.data
+        this.treeData = store.root.store.data
       },
 
       renderContent (h, { node, data, store }) {
