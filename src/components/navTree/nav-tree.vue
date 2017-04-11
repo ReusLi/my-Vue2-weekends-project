@@ -2,27 +2,32 @@
 
 <template>
   <div>
-    <el-tree class="nav-tree" :data="curTreeJson" :props="defaultProps" :highlight-current="true"
-             @node-click="handleNodeClick"></el-tree>
+    <el-tree class="nav-tree"
+             node-key="id"
+             :data="treeData"
+             :props="defaultProps"
+             :highlight-current="true"
+             :render-content="renderContent">
+    </el-tree>
     <el-input class="nav-input" v-model="inputValue"
               @keyup.enter.native="inputEnter"></el-input>
   </div>
 </template>
-
 <script>
-  var treeJson = require('../../json/nav-tree/tree.json')
+//  var treeJson = require('../../json/nav-tree/tree.json')
 
   export default {
     name: 'navTree',
     data () {
       return {
-        data: treeJson,
+//        data: treeJson,
         defaultProps: {
-          label: 'label'
-//          children: 'children'
+          label: 'label',
+          children: 'children'
         },
         inputValue: '',
-        curTreeJson: []
+        treeData: [],
+        id: 1
       }
     },
     methods: {
@@ -31,9 +36,50 @@
       },
       inputEnter () {
         if (this.inputValue !== '') {
-          this.curTreeJson.push({'label': this.inputValue})
+          this.treeData.push({
+            'id': this.id++,
+            'label': this.inputValue,
+            'children': []
+          })
           this.inputValue = ''
         }
+      },
+
+      append (node, store, data) {
+        data.children.push({ id: this.id++, label: 'id' + this.id, children: [] })
+//        store.append({ id: this.id++, label: 'id' + this.id, children: [] }, data)
+        console.group('append' + data.label)
+        console.log(JSON.stringify(store.data))
+        console.groupEnd()
+        this.treeData = store.data
+      },
+
+      remove (node, store, data) {
+        store.remove(data)
+        console.group('remove' + data.label)
+        console.log(store)
+        console.log(data)
+        console.log(node)
+        console.groupEnd()
+        this.treeData = store.data
+      },
+
+      renderContent (h, { node, data, store }) {
+//        console.group('append' + data.label)
+//        console.log(node)
+//        console.log(data)
+//        console.log(store)
+//        console.groupEnd()
+        return (
+          <span>
+          <span>
+          <span>{node.label}</span>
+          </span>
+          <span style="float: right; margin-right: 20px">
+            <el-button size="mini" on-click={ () => this.append(node, store, data) }>Append</el-button>
+            <el-button size="mini" on-click={ () => this.remove(node, store, data) }>Delete</el-button>
+          </span>
+          </span>)
       }
     }
   }

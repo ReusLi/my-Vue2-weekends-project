@@ -5,7 +5,7 @@
       <!-- 左侧nav tree START -->
 
       <el-col class="col" :xs="4" :sm="4" :md="4" :lg="4">
-        <nav-tree></nav-tree>
+        <note-text></note-text>
       </el-col>
 
       <!-- 左侧nav tree END -->
@@ -13,7 +13,7 @@
       <!-- 右侧textarea START -->
 
       <el-col class="col col-note-text" :xs="13" :sm="13" :md="13" :lg="13">
-        <note-text></note-text>
+        <nav-tree></nav-tree>
       </el-col>
 
       <el-col class="col col-note-text" :xs="6" :sm="6" :md="6" :lg="6">
@@ -59,16 +59,20 @@
   }
 
   body {
-    background-color: #324057;
+    background-color: #475669;
   }
 
   .col {
+    background-color: #324057;
     height: 97%;
     /*left: 10px;*/
     border: 1px solid #EFF2F7;
+    -webkit-box-shadow: 1px 1px 1px;
+    -moz-box-shadow: 1px 1px 1px;
+    box-shadow: 1px 1px 1px;
   }
 
-  .col-note-text{
+  .col-note-text {
     margin-left: 20px;
   }
 </style>
