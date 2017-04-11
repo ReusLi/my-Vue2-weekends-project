@@ -48,7 +48,7 @@
       append (node, store, data) {
         data.children.push({ id: this.id++, label: 'id' + this.id, children: [] })
 //        store.append({ id: this.id++, label: 'id' + this.id, children: [] }, data)
-        console.group('append' + data.label)
+        console.group('appends' + data.label)
         console.log(JSON.stringify(store.data))
         console.groupEnd()
         this.treeData = store.data
