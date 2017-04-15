@@ -10,7 +10,11 @@
              :render-content="renderContent">
     </el-tree>
     <el-input class="nav-input" v-model="inputValue"
-              @keyup.enter.native="inputEnter"></el-input>
+              ref='search'
+              autofocus
+              placeholder='输入tree内容'
+              @keyup.enter.native="inputEnter"
+              ></el-input>
   </div>
 </template>
 <script>

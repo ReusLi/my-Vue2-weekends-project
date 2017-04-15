@@ -5,7 +5,7 @@
       <!-- 左侧nav tree START -->
 
       <el-col class="col" :xs="4" :sm="4" :md="4" :lg="4">
-        <note-text></note-text>
+        <nav-tree></nav-tree>
       </el-col>
 
       <!-- 左侧nav tree END -->
@@ -13,7 +13,7 @@
       <!-- 右侧textarea START -->
 
       <el-col class="col col-note-text" :xs="13" :sm="13" :md="13" :lg="13">
-        <nav-tree></nav-tree>
+        <note-text></note-text>
       </el-col>
 
       <el-col class="col col-note-text" :xs="6" :sm="6" :md="6" :lg="6">
