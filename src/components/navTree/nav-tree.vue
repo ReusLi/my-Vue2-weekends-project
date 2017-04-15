@@ -12,7 +12,7 @@
     <el-input class="nav-input" v-model="inputValue"
               ref='search'
               autofocus
-              placeholder='输入tree内容'
+              placeholder="输入tree内容"
               @keyup.enter.native="inputEnter"
               ></el-input>
   </div>
