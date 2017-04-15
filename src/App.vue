@@ -17,7 +17,6 @@
       </el-col>
 
       <el-col class="col col-note-text" :xs="6" :sm="6" :md="6" :lg="6">
-        <note-text></note-text>
       </el-col>
 
       <!-- 右侧textarea END -->
