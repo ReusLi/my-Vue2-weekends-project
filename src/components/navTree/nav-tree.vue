@@ -7,10 +7,14 @@
              :data="treeData"
              :props="defaultProps"
              :highlight-current="true"
-             :render-content="renderContent">
+    >
     </el-tree>
     <el-input class="nav-input" v-model="inputValue"
-              @keyup.enter.native="inputEnter"></el-input>
+              ref='search'
+              autofocus
+              placeholder="输入"
+              @keyup.enter.native="inputEnter"
+              ></el-input>
   </div>
 </template>
 <script>
