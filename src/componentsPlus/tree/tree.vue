@@ -5,7 +5,8 @@
 </template>
 
 <script>
-  import treeJson from '../../json/doc/ecp.core.web.doc.json'
+  //  import treeJson from '../../json/doc/ecp.core.web.doc.json'
+  import treeJson from '../../json/doc/tree.json'
 
   export default{
     name: 'tree',
@@ -13,6 +14,7 @@
       return {
         data: treeJson,
         defaultProps: {
+          children: 'children',
           label: 'caption'
         }
       }
@@ -26,10 +28,15 @@
 </script>
 
 <style>
-.treeDiv{
-  background: #D3DCE6;
-  height: 1000px;
-  padding: 10px;
-  border: 1px solid #ffffff;
-}
+  .el-tree {
+    height:1000px;
+  }
+
+  .treeDiv {
+    background: #D3DCE6;
+    height: 1000px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    /*overflow-y: scroll;*/
+  }
 </style>
