@@ -1,6 +1,6 @@
 <template>
   <div class="treeDiv">
-    <el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+    <el-tree :data="treeData" :props="defaultProps" @node-click="treeItemClick"></el-tree>
   </div>
 </template>
 
@@ -12,7 +12,7 @@
     name: 'tree',
     data () {
       return {
-        data: treeJson,
+        treeData: treeJson,
         defaultProps: {
           children: 'children',
           label: 'caption'
@@ -20,8 +20,8 @@
       }
     },
     methods: {
-      handleNodeClick (data) {
-        console.log(data)
+      treeItemClick (data) {
+        this.$emit('add', data)
       }
     }
   }

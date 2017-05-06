@@ -29,6 +29,7 @@
   }
 
   .pull-left {
+    color: #475669;
     font-size: 35px;
     font-weight: bold;
     min-height: 60px;

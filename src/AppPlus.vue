@@ -4,15 +4,15 @@
       <!-- 左侧nav tree START -->
       <header-menu></header-menu>
       <el-col class="col" :xs="4" :sm="4" :md="4" :lg="4">
-        <tree></tree>
+        <tree v-on:add="renderTreeItem"></tree>
       </el-col>
 
       <!-- 左侧nav tree END -->
 
       <!-- 右侧textarea START -->
 
-      <el-col class="col" :xs="17" :sm="17" :md="17" :lg="17">
-
+      <el-col offset="1" class="col" :xs="17" :sm="17" :md="17" :lg="17">
+        <item-frame :frameData="treeItemData" ref="itemFrame"></item-frame>
       </el-col>
       <!-- 右侧textarea END -->
     </el-row>
@@ -22,12 +22,35 @@
 <script>
   import headerMenu from './componentsPlus/header/header.vue'
   import tree from './componentsPlus/tree/tree.vue'
+  import itemFrame from './componentsPlus/treeItems/itemFrame.vue'
 
   export default {
     name: 'app',
+    data () {
+      return {
+        treeItemData: {}
+      }
+    },
     components: {
+      'header-menu': headerMenu,
       'tree': tree,
-      'header-menu': headerMenu
+      'item-frame': itemFrame
+    },
+    methods: {
+      renderTreeItem: function (data) {
+        console.log(data)
+        var tmpData = {
+          child: []
+        }
+        if (typeof data.children === 'undefined') {
+          tmpData.child.push(data)
+        } else {
+          tmpData = data
+          tmpData.child = data.children
+        }
+        this.treeItemData = tmpData
+//        console.log(this.treeItemData)
+      }
     }
   }
 
@@ -50,9 +73,9 @@
   }
 
   body {
-    background-color: #324057;
+    background-color: #FFFFFF;
+    /*background-color: #324057;*/
   }
-
 
   /*
     .col {
