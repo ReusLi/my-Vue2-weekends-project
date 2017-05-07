@@ -37,7 +37,7 @@
 
   .itemTitle {
     color: #475669;
-    border-bottom: 5px solid #D3DCE6;
+    border-bottom: 5px solid #edf7ff;
     margin-bottom: 20px;
   }
 

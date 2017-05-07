@@ -25,8 +25,12 @@
     width: 200px;
     height: 100px;
     text-align: center;
-    line-height: 60px;
+    line-height: 40px;
     font-size: 20px;
-    border-radius: 0px!important;
+  }
+
+  .myCard:hover{
+    /*box-shadow: 5px 5px 5px black!important;*/
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.12), 0 0 6px 0 rgba(0,0,0,.04);
   }
 </style>

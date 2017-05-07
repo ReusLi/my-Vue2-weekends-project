@@ -1,6 +1,9 @@
 <template>
   <div class="treeDiv">
-    <el-tree :data="treeData" :props="defaultProps" @node-click="treeItemClick"></el-tree>
+    <el-tree :data="treeData"
+             :props="defaultProps"
+             :highlight-current="true"
+             @node-click="treeItemClick"></el-tree>
   </div>
 </template>
 
@@ -32,11 +35,16 @@
     height:1000px;
   }
 
-  .treeDiv {
+  .el-tree-node__content:hover {
+    background: #edf7ff;
+  }
+
+  .el-tree {
     background: #D3DCE6;
     height: 1000px;
-    padding: 10px;
-    border: 1px solid #ffffff;
+    /*padding: 10px;*/
+    border: 0px!important;
+    border-right: 1px solid #eef1f6!important;
     /*overflow-y: scroll;*/
   }
 </style>

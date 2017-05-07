@@ -25,7 +25,7 @@
   }
 
   .el-menu-demo{
-    background: #324057;
+    /*background: #324057!important;*/
   }
 
   .pull-left {
