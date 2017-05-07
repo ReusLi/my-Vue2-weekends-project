@@ -5,9 +5,9 @@
           EUX Developer
       </span>
       <span class="wrapper pull-right">
-        <el-button class="cell" type="warning"></el-button>
-        <el-button class="cell" type="success"></el-button>
-        <el-button class="cell" type="info"></el-button>
+        <el-button class="cellButton" type="warning"></el-button>
+        <el-button class="cellButton" type="success"></el-button>
+        <el-button class="cellButton" type="info"></el-button>
       </span>
     </el-row>
   </el-menu>
@@ -45,7 +45,7 @@
     padding: 0px 10px;
   }
 
-  .cell {
+  .cellButton {
     width: 50px;
     height: 36px;
     border-radius: 0px !important;
