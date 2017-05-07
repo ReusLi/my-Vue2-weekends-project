@@ -1,28 +1,41 @@
 <template>
   <div>
-    <el-row class="row">
-      <!-- 左侧nav tree START -->
-      <header-menu></header-menu>
-      <el-col class="col" :xs="4" :sm="4" :md="4" :lg="4">
-        <tree v-on:add="renderTreeItem"></tree>
-      </el-col>
+    <header-menu></header-menu>
+    <el-col class="col" :xs="4" :sm="4" :md="4" :lg="4">
 
-      <!-- 左侧nav tree END -->
+    </el-col>
 
-      <!-- 右侧textarea START -->
+    <!-- 左侧nav tree END -->
 
-      <el-col offset="1" class="col" :xs="17" :sm="17" :md="17" :lg="17">
-        <item-frame :frameData="treeItemData" ref="itemFrame"></item-frame>
-      </el-col>
-      <!-- 右侧textarea END -->
-    </el-row>
+    <!-- 右侧textarea START -->
+
+    <el-col offset="1" class="col" :xs="17" :sm="17" :md="17" :lg="17">
+      <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse-item title="一致性 Consistency" name="1">
+          <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+          <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </el-collapse-item>
+        <el-collapse-item title="反馈 Feedback" name="2">
+          <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+          <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+        </el-collapse-item>
+        <el-collapse-item title="效率 Efficiency" name="3">
+          <div>简化流程：设计简洁直观的操作流程；</div>
+          <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+          <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+        </el-collapse-item>
+        <el-collapse-item title="可控 Controllability" name="4">
+          <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+          <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+        </el-collapse-item>
+      </el-collapse>
+    </el-col>
+
   </div>
 </template>
 
 <script>
   import headerMenu from './componentsPlus/header/header.vue'
-  import tree from './componentsPlus/tree/tree.vue'
-  import itemFrame from './componentsPlus/treeItems/itemFrame.vue'
 
   export default {
     name: 'app',
@@ -32,25 +45,9 @@
       }
     },
     components: {
-      'header-menu': headerMenu,
-      'tree': tree,
-      'item-frame': itemFrame
+      'header-menu': headerMenu
     },
     methods: {
-      renderTreeItem: function (data) {
-        console.log(data)
-        var tmpData = {
-          child: []
-        }
-        if (typeof data.children === 'undefined') {
-          tmpData.child.push(data)
-        } else {
-          tmpData = data
-          tmpData.child = data.children
-        }
-        this.treeItemData = tmpData
-//        console.log(this.treeItemData)
-      }
     }
   }
 
