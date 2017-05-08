@@ -1,5 +1,5 @@
 <template>
-    <el-card class="box-card myCard">
+    <el-card class="box-card myCard" @click.native="showDetailPage">
       {{colData.caption}}
     </el-card>
 </template>
@@ -11,7 +11,12 @@
     name: 'itemCard',
     props: [
       'colData'
-    ]
+    ],
+    methods: {
+      showDetailPage () {
+        window.location.href = 'detail.html'
+      }
+    }
   }
 
 </script>
