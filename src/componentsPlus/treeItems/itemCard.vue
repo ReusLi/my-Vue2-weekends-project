@@ -14,7 +14,13 @@
     ],
     methods: {
       showDetailPage () {
-        window.location.href = 'detail.html'
+        /*
+        * 1. click card data
+        * 2. send data to detail.html by &arg=x
+        * 3. http get new page data & render it
+        * 4. maybe it need to use http require
+        * */
+        window.open('./detail.html')
       }
     }
   }
