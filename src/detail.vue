@@ -60,6 +60,16 @@
           </el-collapse>
         </el-row>
       </el-col>
+      <el-col offset="2" :xs="4" :sm="4" :md="4" :lg="4">
+        <el-tree
+          :data="data2"
+          :props="defaultProps"
+          node-key="id"
+          @node-click="navClick"
+          :render-content="renderContent"
+          >
+        </el-tree>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -72,13 +82,62 @@
     name: 'app',
     data () {
       return {
-        tableData: tableJson
+        tableData: tableJson,
+        data2: [{
+          id: 1,
+          label: '一级 1',
+          children: [{
+            id: 4,
+            label: '二级 1-1',
+            children: [{
+              id: 9,
+              label: '三级 1-1-1'
+            }, {
+              id: 10,
+              label: '三级 1-1-2'
+            }]
+          }]
+        }, {
+          id: 2,
+          label: '一级 2',
+          children: [{
+            id: 5,
+            label: '二级 2-1'
+          }, {
+            id: 6,
+            label: '二级 2-2'
+          }]
+        }, {
+          id: 3,
+          label: '一级 3',
+          children: [{
+            id: 7,
+            label: '二级 3-1'
+          }, {
+            id: 8,
+            label: '二级 3-2'
+          }]
+        }],
+        defaultProps: {
+          children: 'children',
+          label: 'label'
+        }
       }
     },
     components: {
       'header-menu': headerMenu
     },
     methods: {
+      navClick (data, a, b) {
+        console.log(data)
+        console.log(a)
+        console.log(b.$el)
+      },
+      renderContent (h, { node, data, store }) {
+        return (
+          <span class="abc"><a>{node.label}</a></span>
+        )
+      }
     }
   }
 
