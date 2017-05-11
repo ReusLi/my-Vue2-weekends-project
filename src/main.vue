@@ -13,7 +13,7 @@
 
       <el-col offset="1" class="col" :xs="17" :sm="17" :md="17" :lg="17">
         <item-frame v-if="hasChild" :frameData="treeItemData1" ref="itemFrame"></item-frame>
-        <item-frame v-else-if="!hasChild" :frameData="treeItemData2" ref="itemFrame"></item-frame>
+        <item-frame v-else :frameData="treeItemData2" ref="itemFrame"></item-frame>
       </el-col>
       <!-- 右侧textarea END -->
     </el-row>
