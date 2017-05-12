@@ -24,7 +24,11 @@
     },
     methods: {
       treeItemClick (data) {
-        this.$emit('add', data)
+        var hasChild = true
+        if (typeof data.children === 'undefined') {
+          hasChild = false
+        }
+        this.$emit('add', data, hasChild)
       }
     }
   }

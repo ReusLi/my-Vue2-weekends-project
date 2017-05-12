@@ -12,7 +12,8 @@
       <!-- 右侧textarea START -->
 
       <el-col offset="1" class="col" :xs="17" :sm="17" :md="17" :lg="17">
-        <item-frame :frameData="treeItemData" ref="itemFrame"></item-frame>
+        <item-frame v-if="hasChild" :frameData="treeItemData1" ref="itemFrame"></item-frame>
+        <item-frame v-else :frameData="treeItemData2" ref="itemFrame"></item-frame>
       </el-col>
       <!-- 右侧textarea END -->
     </el-row>
@@ -28,7 +29,9 @@
     name: 'app',
     data () {
       return {
-        treeItemData: {}
+        treeItemData1: {},
+        treeItemData2: {},
+        hasChild: true
       }
     },
     components: {
@@ -37,18 +40,19 @@
       'item-frame': itemFrame
     },
     methods: {
-      renderTreeItem: function (data) {
-        console.log(data)
+      renderTreeItem: function (data, hasChild) {
+        this.hasChild = hasChild
         var tmpData = {
           child: []
         }
         if (typeof data.children === 'undefined') {
           tmpData.child.push(data)
+          this.treeItemData2 = tmpData
         } else {
           tmpData = data
           tmpData.child = data.children
+          this.treeItemData1 = tmpData
         }
-        this.treeItemData = tmpData
 //        console.log(this.treeItemData)
       }
     }
