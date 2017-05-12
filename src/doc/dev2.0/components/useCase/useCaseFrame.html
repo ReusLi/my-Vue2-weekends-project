@@ -1,0 +1,28 @@
+<div>
+    <el-row>
+        <el-col :xs="4" :sm="4" :md="4" :lg="4">
+            <el-card class="componentTitle">
+                {{title}}
+            </el-card>
+        </el-col>
+    </el-row>
+    <el-row v-for="exp in exampleJson">
+        <el-row>
+            <!--用例名称 start-->
+            <el-row class="itemTitle">
+                <a :name="exp.offset"></a>
+                <h3>{{exp.title}}</h3>
+            </el-row>
+            <!--用例名称 end-->
+
+            <!--用例样式渲染 start-->
+            <el-row>
+            </el-row>
+            <!--用例样式渲染 end-->
+        </el-row>
+
+        <!-- 用例代码 start-->
+        <use-case-code :code="exp"></use-case-code>
+        <!-- 用例代码 end-->
+    </el-row>
+</div>

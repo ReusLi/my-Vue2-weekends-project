@@ -1,0 +1,19 @@
+<div>
+    <el-row class="row">
+        <!-- 左侧nav tree START -->
+        <header-menu></header-menu>
+        <el-col class="col" :xs="4" :sm="4" :md="4" :lg="4">
+            <tree v-on:add="renderTreeItem"></tree>
+        </el-col>
+
+        <!-- 左侧nav tree END -->
+
+        <!-- 右侧textarea START -->
+
+        <el-col offset="1" class="col" :xs="17" :sm="17" :md="17" :lg="17">
+            <item-frame :frameData="treeItemData" ref="itemFrame"></item-frame>
+        </el-col>
+
+        <!-- 右侧textarea END -->
+    </el-row>
+</div>

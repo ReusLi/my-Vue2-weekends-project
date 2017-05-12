@@ -1,0 +1,12 @@
+<div>
+    <el-row>
+        <el-row class="itemTitle">
+            <h2>{{rowData.caption}}</h2>
+        </el-row>
+        <el-row>
+            <el-col v-for="colData in rowData.items" class="itemCol" offset="1" :xs="6" :sm="6" :md="6" :lg="6">
+                <item-card :pid="rowData.id" :colData="colData"></item-card>
+            </el-col>
+        </el-row>
+    </el-row>
+</div>

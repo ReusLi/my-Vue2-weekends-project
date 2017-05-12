@@ -1,0 +1,14 @@
+<div class="exampleTree">
+    <el-tree
+            class="exTree"
+            :data="navTree"
+            :props="defaultProps"
+            @node-click="navClick"
+            highlight-current="true"
+            :render-content="renderContent">
+    </el-tree>
+    <el-row id="scrollTop"
+            @click.native="scrollToTop">
+        返回顶部
+    </el-row>
+</div>

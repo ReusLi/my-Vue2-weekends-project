@@ -1,0 +1,19 @@
+<div>
+    <!--顶部公共头 start-->
+    <header-menu></header-menu>
+    <!--顶部公共头 end-->
+    <br/>
+    <el-row>
+        <!--左侧组件详情内容 start-->
+        <el-col offset="2" class="col" :xs="14" :sm="14" :md="14" :lg="14">
+            <use-case-frame :title="title" :exampleJson="exampleJson"></use-case-frame>
+        </el-col>
+        <!--左侧组件详情内容 end-->
+
+        <!--右侧导航tree start-->
+        <el-col offset="1" :xs="4" :sm="4" :md="4" :lg="5">
+            <use-case-tree :navTree="navTree"></use-case-tree>
+        </el-col>
+        <!--右侧导航tree end-->
+    </el-row>
+</div>
